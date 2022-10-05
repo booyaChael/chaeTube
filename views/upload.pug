@@ -1,0 +1,7 @@
+extends base.pug 
+block content 
+    form(method="POST")
+        input(placeholder="Title", type="text", name="title", required)
+        input(placeholder="Hashtags", type="text", name="hashtags")
+        input(placeholder="Memo", type="text", name="memo", required)
+        input(value="Upload", type="submit")
