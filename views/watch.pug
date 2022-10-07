@@ -1,6 +1,11 @@
 extends base.pug 
 block content
-    h1=video.title 
+    ul
+        li 
+            a(href=`/video/update/${video.id}`) Update
+        li 
+            a(href=`/video/remove/${video.id}`) Delete
+    h1=video.title
     div 
-        p=video.memo
+        video(src="/" + video.fileUrl, controls)
     h4 #{video.hashtags} #{video.createdAt}

@@ -12,9 +12,11 @@ app.set("view engine", "pug");
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/public/uploads", express.static('public/'));
 app.use("/", globalRouter);
 app.use("/user", userRouter);
 app.use("/video", videoRouter);
+
 
 const PORT = 4000;
 app.listen(PORT, serverConnection);
