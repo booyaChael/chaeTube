@@ -1,0 +1,10 @@
+extends base.pug 
+block content 
+    form(method="POST")
+        label(for="title") Title:
+            input(placeholder="Title", type="text", name="title", value=video.title, required)
+        label(for="Hashtags") Hashtags:
+            input(placeholder="Hashtags", type="text", name="hashtags", value=hashtagString)
+        label(for="memo") Memo:
+            input(placeholder="Memo", type="text", name="memo", value=video.memo, required)
+        input(value="Upload", type="submit")
