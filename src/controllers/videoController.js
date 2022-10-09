@@ -10,14 +10,21 @@ export const upload = async(req, res) => {
         case "GET":
             return res.render("upload");
         case "POST":
-            const {title, hashtags, createdAt, memo} = req.body;
+            const {
+                session: {
+                  user: {_id},
+                },
+                body: {title, hashtags, createdAt, memo},
+            } = req;
+
             const file =req.file;
             const newVideo = await Video.create({
                 title,
                 hashtags: hashtags.split(' ').filter(word => word.startsWith('#')),
                 createdAt,
                 memo,
-                fileUrl: file.path
+                fileUrl: file.path,
+                owner: _id,
             });
             console.log(newVideo);
             return res.redirect("/");
@@ -26,7 +33,7 @@ export const upload = async(req, res) => {
 
 export const watch = async(req, res) => {
     const {id} = req.params;
-    const video = await Video.findById(id);
+    const video = await Video.findById(id).populate("owner");
     return res.render("watch", {video});
 };
 
