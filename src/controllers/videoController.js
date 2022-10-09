@@ -28,8 +28,6 @@ export const upload = async(req, res) => {
 export const watch = async(req, res) => {
     const {id} = req.params;
     const video = await Video.findById(id);
-    console.log(video.title);
-    console.log(video.fileUrl);
     return res.render("watch", {video});
 };
 
@@ -48,7 +46,6 @@ export const update = async(req, res) => {
                 hashtags,
                 memo
             });
-            console.log(video);
             return res.redirect(`/video/watch/${id}`);
     }
 };
@@ -59,3 +56,12 @@ export const remove = async(req, res) => {
     res.redirect("/");
 };
 
+export const record = async(req, res) => {
+    switch(req.method){
+        case "GET":
+            return res.render("record");
+        case "POST":
+            return res.redirect("/");
+    };
+
+};
