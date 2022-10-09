@@ -1,0 +1,8 @@
+extends base.pug 
+block content
+    form(method="POST")
+        input(placeholder="Username", type="text", name="username", value=loggedInUser.username, required)
+        input(value="Edit Profile", type="submit")
+    div 
+        button#changePWBtn
+            a(href="/user/change-password") Change Password

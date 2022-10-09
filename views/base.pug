@@ -12,10 +12,17 @@ html(lang="en")
                 ul
                     li 
                         a(href="/") Home
-                    li 
-                        a(href="/login") Login
-                    li 
-                        a(href="/join") Join
+                    if loggedIn
+                        li
+                            a(href="/user/logout") Logout
+                        li 
+                            a(href="/user/profile") #{loggedInUser.username}의 프로필
+
+                    else
+                        li 
+                            a(href="/login") Login
+                        li 
+                            a(href="/join") Join
                     li 
                         a(href="/video/upload") Upload
                     li 

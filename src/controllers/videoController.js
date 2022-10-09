@@ -1,6 +1,5 @@
 import Video from "../models/Video.js";
 
-
 export const handleHome = async(req, res) => {
     const videos = await Video.find({});
     return res.render("home", {videos});

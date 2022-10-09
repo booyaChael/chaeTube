@@ -1,0 +1,8 @@
+extends base.pug 
+block content
+    span #{errorMessage}
+    form(method="POST")
+        input(placeholder="Old Password", type="password", name="oldPassword")
+        input(placeholder="New Password", type="password", name="newPassword")
+        input(placeholder="New Password Confirmation", type="password", name="newPasswordConfirmation")
+        input(value="Make a Account", type="submit")
